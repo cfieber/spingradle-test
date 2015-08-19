@@ -18,6 +18,9 @@ apply plugin: 'spinnaker.ideaconfig'
 apply plugin: 'spinnaker.dependency'
 apply plugin: 'groovy'
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 dependencies {
   compile 'org.codehaus.groovy:groovy-all:latest.release'
   compile spinnaker.dependency('amazoncomponents')
