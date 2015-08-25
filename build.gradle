@@ -17,8 +17,6 @@ apply plugin: 'spinnaker.project'
 apply plugin: 'groovy'
 apply plugin: 'nebula.os-package'
 
-//project.tasks.publish.dependsOn('buildDeb')
-
 dependencies {
   compile 'org.codehaus.groovy:groovy-all:latest.release'
   compile spinnaker.dependency('amazoncomponents')
