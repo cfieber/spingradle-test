@@ -4,8 +4,7 @@ buildscript {
     jcenter()
   }
   dependencies {
-    classpath 'com.netflix.spinnaker.gradle:spinnaker-ideaconfig-plugin:1.0-SNAPSHOT'
-    classpath 'com.netflix.spinnaker.gradle:spinnaker-dependency-plugin:1.0-SNAPSHOT'
+    classpath 'com.netflix.spinnaker.gradle:spinnaker-gradle-project:1.13.0-SNAPSHOT'
   }
 }
 
@@ -14,14 +13,19 @@ repositories {
   jcenter()
 }
 
-apply plugin: 'spinnaker.ideaconfig'
-apply plugin: 'spinnaker.dependency'
+apply plugin: 'spinnaker.project'
 apply plugin: 'groovy'
+apply plugin: 'nebula.os-package'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+bintray {
+  dryRun = true
+  publish = false
+}
+
+project.tasks.publish.dependsOn('buildDeb')
 
 dependencies {
   compile 'org.codehaus.groovy:groovy-all:latest.release'
   compile spinnaker.dependency('amazoncomponents')
+  compile "org.springframework:spring-context:${spinnaker.version('spring')}"
 }
