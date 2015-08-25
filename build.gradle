@@ -17,12 +17,7 @@ apply plugin: 'spinnaker.project'
 apply plugin: 'groovy'
 apply plugin: 'nebula.os-package'
 
-bintray {
-  dryRun = true
-  publish = false
-}
-
-project.tasks.publish.dependsOn('buildDeb')
+//project.tasks.publish.dependsOn('buildDeb')
 
 dependencies {
   compile 'org.codehaus.groovy:groovy-all:latest.release'
